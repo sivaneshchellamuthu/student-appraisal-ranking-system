@@ -1,0 +1,5 @@
+out/
+data/
+sources.txt
+*.tmp
+*.pptx
