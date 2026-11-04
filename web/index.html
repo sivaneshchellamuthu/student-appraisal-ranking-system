@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EduRank - Student Appraisal &amp; Ranking System</title>
+  <meta name="description" content="Student appraisal and ranking dashboard with admin and faculty login, student marks, and instant register-number rank lookup.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="login-screen" class="login-screen">
+    <section class="brand-panel">
+      <div class="brand-mark">ER</div>
+      <h1>EduRank</h1>
+      <p class="brand-sub">Student appraisal and ranking, built for a faster and more transparent campus.</p>
+      <ul class="feature-list">
+        <li>Role-based access for admin and faculty</li>
+        <li>Subject-wise and overall rankings</li>
+        <li>Instant rank lookup by register number</li>
+      </ul>
+      <p class="brand-foot">Browser edition &middot; Data stays in this browser</p>
+    </section>
+
+    <section class="login-panel">
+      <form id="login-form" class="login-form" autocomplete="on">
+        <h2>Welcome back</h2>
+        <p class="muted login-sub">Sign in to open your dashboard.</p>
+
+        <label class="field">Role
+          <select id="login-role" required>
+            <option value="ADMIN">Admin</option>
+            <option value="FACULTY">Faculty</option>
+          </select>
+        </label>
+
+        <label class="field">Username
+          <input id="login-username" type="text" value="admin" autocomplete="username" required>
+        </label>
+
+        <label class="field">Password
+          <input id="login-password" type="password" value="admin123" autocomplete="current-password" required>
+        </label>
+
+        <p id="login-error" class="status error" role="alert"></p>
+        <button class="btn primary btn-block" type="submit">Sign in to dashboard</button>
+        <p class="login-hint">
+          Demo accounts: <b>admin / admin123</b> (Admin) and <b>faculty / faculty123</b> (Faculty).
+          All data is stored locally in this browser.
+        </p>
+      </form>
+    </section>
+  </div>
+
+  <div id="app" class="app hidden">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <span class="mini-mark">ER</span>
+        <div>
+          <strong>EduRank</strong>
+          <span>RANKING SYSTEM</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <button class="nav-item active" data-view="dashboard" type="button">Dashboard</button>
+        <button class="nav-item" data-view="students" type="button">Students</button>
+        <button class="nav-item" data-view="marks" type="button">Marks</button>
+        <button class="nav-item" data-view="rank" type="button">Rank List</button>
+        <button class="nav-item hidden" id="nav-faculty" data-view="faculty" type="button">Faculty</button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <strong id="sidebar-name">User</strong>
+        <span id="sidebar-meta">@user</span>
+        <button id="logout-btn" type="button">Log out</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <h1 id="page-title">Dashboard</h1>
+          <p id="page-subtitle">Overview of students, subjects and top performers.</p>
+        </div>
+        <span id="role-badge" class="role-badge admin">ADMIN</span>
+      </header>
+      <section id="content" class="content"></section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
