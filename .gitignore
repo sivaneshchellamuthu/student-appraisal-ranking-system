@@ -1,5 +1,1 @@
-out/
-data/
-sources.txt
-*.tmp
-*.pptx
+.vercel
